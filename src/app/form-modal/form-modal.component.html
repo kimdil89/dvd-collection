@@ -1,0 +1,40 @@
+<div class="modal-header">
+  <h4 class="modal-title">Add new movie</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div class="modal-boy">
+    <div class="container">
+      <div class="form-group">
+        <label for="username">Title: </label>
+        <input type="text" id="title" class="form-control" formControlName="title" />
+      </div>
+      <div class="form-group">
+        <label for="username">Director: </label>
+        <input type="text" id="director" class="form-control" formControlName="director" />
+      </div>
+      <div class="form-group">
+        <label for="username">Year of production: </label>
+        <input type="number" id="year" class="form-control" formControlName="year" />
+        <span *ngIf="!myForm.get('year').valid && myForm.get('year').touched" class="invalid-alert">Oops... This is not
+          an existing year!</span>
+      </div>
+      <div class="form-group">
+        <label for="username">Link: </label>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">
+              <img src="https://vignette.wikia.nocookie.net/charmed/images/3/3a/Filmweb_logo.png/revision/latest?cb=20160310182251&path-prefix=pl"
+                alt="Filmweb_logo" class="logo"></span>
+          </div>
+          <input type="url" id="link" class="form-control" formControlName="link" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-success" [disabled]="!myForm.valid">Add</button>
+  </div>
+</form>

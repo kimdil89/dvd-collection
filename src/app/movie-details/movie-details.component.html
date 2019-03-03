@@ -1,0 +1,28 @@
+<div class="col-sm">
+  <div class="details">
+    <h3 class="header">Details:</h3>
+  
+    <div *ngIf="displayDetails">
+      <div *ngIf="selectedDvd">
+        <div class="director">
+        <div>
+          <p class="badge-d">
+            <img src="https://static.thenounproject.com/png/172672-200.png" alt="director_img" class="director-img">
+            <br>{{ selectedDvd.director }}
+          </p>
+        </div>
+        <div class="year">
+          <span class="badge-y"><b>Year of production:</b> <br>{{ selectedDvd.year }}</span>
+          <span class="badge-f">
+            <a href="{{selectedDvd.link}}" target="_blank">
+              <img src="https://vignette.wikia.nocookie.net/charmed/images/3/3a/Filmweb_logo.png/revision/latest?cb=20160310182251&path-prefix=pl" alt="Filmweb_logo" class="logo">
+            </a> 
+          </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  </div>
+  

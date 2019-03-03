@@ -1,0 +1,6 @@
+<label> 
+  <span [ngStyle]="{'color': 'white'}">Find: </span>
+  <input (input)="onInputChange($event.target.value)"
+        placeholder=" some awesome movie/director" 
+        class="input-text">
+</label>
