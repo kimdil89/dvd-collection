@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormModalComponent } from './form-modal/form-modal.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormModalComponent } from './add-movie/form-modal/form-modal.component';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Component({
   selector: 'my-app',
@@ -8,17 +9,21 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'My DVD Collection';
+  title = 'MY DVD COLLECTION';
   searchText: string;
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal,
+    public toastr: ToastrManager) { }
+
 
   openFormModal() {
-    const modalRef = this.modalService.open(FormModalComponent); // otwieranie modalu z dodaniem nowego filmu
+    this.modalService.open(FormModalComponent); /** opening add-modal  */
   };
 
-  passSearchText(searchText) { // metoda do wyszukiwarki filmu z listy, przekazuję dane
+  passSearchText(searchText) { /** passing data to search box */
     this.searchText = searchText;
   };
+
+
 
 }

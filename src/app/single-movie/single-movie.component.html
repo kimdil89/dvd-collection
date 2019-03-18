@@ -1,10 +1,10 @@
 <li class="each-movie">
   <div class="title" (click)="onSelect(selectedDvd)">
-    {{ selectedDvd.title }}
+    <span class="text">{{ selectedDvd.title }}</span>
   </div>
-      <div>
-        <button type="button" class="btn-custom" (click)="editMovie(selectedDvd)">Edit</button>
-        <button class="btn-custom" 
-                (click)="deleteMovie(selectedDvd)">Delete</button>
-      </div>
+  <div class="buttons-section">
+    <button type="button" class="btn-custom btn-edit" (click)="editMovie(selectedDvd.id)">Edit</button>
+    <button class="btn-custom btn-delete" 
+            (click)="deleteMovie(selectedDvd)">Delete</button>
+  </div>
 </li>

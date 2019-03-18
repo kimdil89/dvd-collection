@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FilterPipe } from '../filter.pipe';
-import { ListCollectionService } from '../list-collection.service';
+import { ListCollectionService } from '../services/list-collection.service';
 
 @Component({
   selector: 'app-movies-search',

@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "api": "json-server --watch my-collection.json"
   },
   "private": true,
   "dependencies": {
@@ -20,8 +21,11 @@
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
     "@ng-bootstrap/ng-bootstrap": "4.0.2",
+    "@types/lodash": "^4.14.122",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
+    "lodash": "^4.17.11",
+    "ng6-toastr-notifications": "^1.0.4",
     "rxjs": "~6.4.0",
     "rxjs-compat": "^6.4.0",
     "tslib": "^1.9.0",

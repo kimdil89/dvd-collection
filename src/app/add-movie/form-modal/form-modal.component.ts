@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { MyCollection } from '../my-collection';
+import { MyCollectionService } from 'src/app/services/my-collection.service';
+import { AlertService } from 'src/app/services/alert.service';
+
 
 @Component({
   selector: 'app-form-modal',
@@ -10,10 +12,12 @@ import { MyCollection } from '../my-collection';
 })
 export class FormModalComponent {
   myForm: FormGroup;
-  listOfDvds = MyCollection;
+  listOfDvds;
   urlVal: string = "https?://www.+";
 
-  constructor(public activeModal: NgbActiveModal) { }
+  constructor(public activeModal: NgbActiveModal,
+    private myCollectionService: MyCollectionService,
+    private alertService: AlertService) { }
 
   ngOnInit() {
     this.myForm = new FormGroup({
@@ -24,9 +28,15 @@ export class FormModalComponent {
     });
   }
 
-  private onSubmit() {
-    this.listOfDvds.push(this.myForm.value);
-    this.myForm.reset();
+  onSubmit() {
+    this.myCollectionService.updateMyCollection(this.myForm.value)
+      .subscribe(
+        (Response) => console.log(Response),
+        (error) => console.log(error)
+      );
     this.activeModal.close(this.myForm.value);
-  }
+    this.alertService.showSuccess("You succesfully added a new movie!");
+    setTimeout(function () { window.location.reload(); }, 2000);
+  };
+
 }

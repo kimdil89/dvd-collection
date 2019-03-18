@@ -1,11 +1,16 @@
-<div class="col-sm">
+<div class="col-sm ">
   <ul class="list">
     <h3 class="header">Database <span>({{ (listOfDvds | filter: searchText)?.length }})</span>: </h3>
-      <app-single-movie *ngFor="let dvd of listOfDvds | filter: searchText"
+    <div class="scroll">
+      <app-single-movie *ngFor="let dvd of listOfDvds | filter: searchText" 
                         [selectedDvd]="dvd"
-                        (remove)="onRemove($event)"
-                        (edit)="onEdit($event)"
+                        (remove)="onRemove($event)" 
+                        (edit)="onEdit($event)" 
                         (select)="onSelect($event)"></app-single-movie>
+    </div>
   </ul>
 </div>
- 
+
+<!-- Jako ciekawostkę przy okazji listy elementów, możesz kiedyś ustawić sobie kolejny bardziej 
+  zaawansowany temat- wirtualizacja. W skrócie, ten mechanizm odpowiada na pytanie jak to zrobić, 
+  żeby wyświetlić np. 200 000 elementów na stronie bez utraty szybkości działania strony -->

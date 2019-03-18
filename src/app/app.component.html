@@ -6,13 +6,6 @@
 		<app-add-movie (click)="openFormModal()"></app-add-movie>
 	</div>
 
-	<!-- <div class="content"> -->
-	<!-- <div *ngIf="editMovie">
-      <app-edit-movie [dvdDetails]="selectedDvd"
-                    ></app-edit-movie>
-    </div>  -->
-	<!-- </div> -->
-
 	<div class="container">
 		<div class="row">
 			<app-list-collection></app-list-collection>
@@ -20,21 +13,4 @@
 		</div>
 	</div>
 
-	<!-- <div class="container">
-    <div class="row">
-      <app-list-collection (thisDvd)="thisDvd($event)"                            
-                            ></app-list-collection>
-      <app-movie-details [dvdDetails]="selectedDvd" 
-                          ></app-movie-details>
-    </div>
-  </div> -->
-
-	<!-- 
-    <div *ngIf="editMovie">
-      <app-edit-movie [dvdDetails]="selectedDvd"
-                    [(editMovieShow)]="editMovie"
-                    ></app-edit-movie>
-    </div> -->
-
 </div>
-  

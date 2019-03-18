@@ -1,3 +1,8 @@
 .input-text {
-    width: 250px;
-  }
+  width: 250px;
+}
+
+.find {
+  color: white;
+  font-size: 120%;
+}

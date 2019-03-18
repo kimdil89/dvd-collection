@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DvdItem } from '../dvd-item';
-import { ListCollectionService } from '../list-collection.service';
+import { DvdItem } from '../interfaces/dvd-item';
+import { ListCollectionService } from '../services/list-collection.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -12,14 +12,14 @@ export class MovieDetailsComponent implements OnInit {
   displayDetails: boolean;
   selectedDvd: DvdItem;
 
-  constructor(private listCollectionService: ListCollectionService) {}
+  constructor(private listCollectionService: ListCollectionService) { }
 
   ngOnInit() {
-    this.listCollectionService.show$.subscribe((value: boolean) => { // odpowiada za wyświetlanie detali o filmie
+    this.listCollectionService.show$.subscribe((value: boolean) => { /** displaying details about movie */
       this.displayDetails = value;
     });
 
-    this.listCollectionService.selected$.subscribe((value: DvdItem) => { // ściąga dane o detalach klikniętego filmu
+    this.listCollectionService.selected$.subscribe((value: DvdItem) => { /** importing data about details of selected movie */
       this.selectedDvd = value;
     });
   }

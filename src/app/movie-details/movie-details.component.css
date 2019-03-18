@@ -1,73 +1,84 @@
 .details {
-    margin-left: 50px;
-    text-align: center;
-    width: 350px;
-  }
-  
-  .header {
-    text-align: center;
-    margin-bottom: 25px;
-    background-color: #a89f84;
-    border-radius: 5px;
-    padding: 5px;
-    font-size: 25px;
-  }
-  
-  .director {
-    display: flex;
-    width: 100px;
-    padding-right: -10px;
-  } 
-  
-  .badge-d {
-    display: inline-block;
-    background-color: #b98fef;
-    padding: 20px;
-    margin: 5px;
-    text-align: center;
-    border-radius: 4px;
-    flex-grow: 1;
-    height: 160px;
-    width: 130px;
-    margin-left: 50px;
-  }
-  
-  .director-img {
-    height: 50px;
-    margin-top: 10px;
-  }
-  
-  .year {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .badge-y {
-    display: inline-block;
-    background-color:#efef8f;
-    padding: 10px 20px 20px 20px;
-    margin: 5px;
-    text-align: center;
-    border-radius: 4px;
-    height: 90px;
-    width: 120px;
-  }
-  
-  .badge-f {
-    display: inline-block;
-    text-align: center;
-    border-radius: 4px;
-    height: 70px;
-    margin-top: 10px;
-  }
-  
-  .logo {
-    height: 50px;
-  }
-  
-  
-  
-  
-  
-  
-  
+  margin-left: 50px;
+  text-align: center;
+  width: 350px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 25px;
+  background-color: #a89f84;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 25px;
+}
+
+.director {
+  display: flex;
+  width: 100px;
+  padding-right: -10px;
+}
+
+.badge-t {
+  display: flex;
+  justify-content: center;
+  background-color: #56a850;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 4px;
+  height: 60px;
+  width: 260px;
+  margin-left: 50px;
+  margin-top: 7px;
+}
+
+.badge-d {
+  display: inline-block;
+  background-color: #b98fef;
+  padding: 20px;
+  margin: 5px;
+  text-align: center;
+  border-radius: 4px;
+  flex-grow: 1;
+  height: 160px;
+  width: 130px;
+  margin-left: 50px;
+}
+
+.movie-img {
+  height: 30px;
+  margin-right: 3px;
+}
+
+.director-img {
+  height: 50px;
+  margin-top: 10px;
+}
+
+.year {
+  display: flex;
+  flex-direction: column;
+}
+
+.badge-y {
+  display: inline-block;
+  background-color: #efef8f;
+  padding: 10px 20px 20px 20px;
+  margin: 5px;
+  text-align: center;
+  border-radius: 4px;
+  height: 90px;
+  width: 120px;
+}
+
+.badge-f {
+  display: inline-block;
+  text-align: center;
+  border-radius: 4px;
+  height: 70px;
+  margin-top: 10px;
+}
+
+.logo {
+  height: 50px;
+}

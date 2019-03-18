@@ -1,29 +1,50 @@
 li.each-movie {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
-    background-color: #dbe2c9;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 10px;
-    margin-left: -35px;
-    margin-right: 5px;
-    font-size: medium;
-  }
-  
-  li.each-movie:hover {
-    cursor: pointer;
-  }
-  
-  .title {
-    width: 265px;
-    height: 24px;
-  }
-  
-  .btn-custom {
-    border-radius: 5px;
-    background-color: white;
-  }
-  
-  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  background-color: #dbe2c9;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 10px;
+  margin-right: 5px;
+  font-size: medium;
+  color: #424240;
+  height: 50px;
+  cursor: pointer;
+}
+
+li.each-movie:hover {
+  background-color: rgba(#dbe2c9, 0.8);
+  opacity: 0.8;
+}
+
+.title {
+  display: flex;
+  align-self: center;
+  width: 290px;
+  height: 45px;
+
+}
+
+.text {
+  margin-top: 8px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.btn-custom {
+  border-radius: 5px;
+}
+
+.btn-edit {
+  background-color: #f2f1b5;
+}
+
+.btn-delete {
+  background-color: #e8a0a6;
+}
+
+.text {
+  width: 280px;
+}

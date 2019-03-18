@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { DvdItem } from '../interfaces/dvd-item';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { DvdItem } from '../dvd-item';
-import { MyCollection } from '../my-collection';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { ListCollectionService } from '../list-collection.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { MyCollectionService } from '../services/my-collection.service';
+import { ListCollectionService } from '../services/list-collection.service';
+import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
   selector: 'app-edit-movie',
@@ -13,14 +15,16 @@ import { ListCollectionService } from '../list-collection.service';
 
 export class EditMovieComponent implements OnInit {
   editForm: FormGroup;
-  listOfDvds = MyCollection;
+  listOfDvds;
   selectedDvd: DvdItem;
-  urlVal: string = "https?://www.+";
+  urlVal: string = "https://www.+";
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private listCollectionService: ListCollectionService
+    private listCollectionService: ListCollectionService,
+    private myCollectionService: MyCollectionService,
+    private alertService: AlertService
   ) { }
 
   ngOnInit() {
@@ -29,63 +33,63 @@ export class EditMovieComponent implements OnInit {
       console.log(value, "selected");
     });
 
-    this.test();
-
-    this.selectedDvd = {
-      title: this.route.snapshot.params['title'],
-      director: this.route.snapshot.params['director'],
-      year: this.route.snapshot.params['year'],
-      link: this.route.snapshot.params['link']
-    };
-    // this.route.params
-    //   .subscribe(
-    //     (params: Params) => {
-    //       this.selectedDvd.title = params['title'];
-    //       this.selectedDvd.director = params['director'];
-    //       this.selectedDvd.year = params['year'];
-    //       this.selectedDvd.link = params['link'];
-    //     }
-    //   );
-
-
-    // let selectedMovie = this.route.snapshot.paramMap.get('selectedDvd');
-    // this.listCollectionService.thisMovie(this.selectedDvd)
-    //   .subscribe(selectedDvd => this.selectedDvd = selectedDvd);
+    this.route.paramMap
+      .subscribe(params => {
+        const dvdId = +params.get('id');
+        if (dvdId) {
+          this.getMovie(dvdId);
+        }
+      })
 
     this.editForm = new FormGroup({
       'title': new FormControl(null, Validators.required),
       'director': new FormControl(null, Validators.required),
       'year': new FormControl(null, [Validators.required, Validators.min(1930), Validators.max(2050)]),
       'link': new FormControl(null, [Validators.required, Validators.pattern(this.urlVal)])
-      // 'fakeFormControl': new FormControl(null) // ukryty form control, potrzebny by przekazać zmieniający się boolean editMovie
     });
 
-    // this.test();
+  };
 
-    this.editForm.setValue({
+  getMovie(id: number) {
+    this.myCollectionService.getMovie(id).subscribe(
+      (dvd: DvdItem) => {
+        this.editMovie(dvd);
+        this.selectedDvd = dvd;
+      },
+      (err: any) => console.log(err)
+    );
+  }
+
+  editMovie(dvd: DvdItem) {
+    this.selectedDvd = dvd;
+    this.editForm.patchValue({
       'title': this.selectedDvd.title,
       'director': this.selectedDvd.director,
       'year': this.selectedDvd.year,
       'link': this.selectedDvd.link
     });
-
-  };
+  }
 
   onSubmit(): void {
-    const index = this.listOfDvds.indexOf(this.selectedDvd);
-    this.selectedDvd = this.editForm.value;
-    this.listOfDvds[index] = this.selectedDvd;
-    this.listCollectionService.thisMovie(this.selectedDvd);
-    this.router.navigate(['']);
+    this.mapFormValuesToEditModal();
+    this.myCollectionService.editMyCollection(this.selectedDvd)
+      .subscribe(
+        () => this.router.navigate(['']),
+        (err: any) => console.log(err)
+      );
+    this.alertService.showSuccess("You succesfully edited the movie!");
   };
 
-  onCancel(editForm) {
+  mapFormValuesToEditModal() {
+    this.selectedDvd.title = this.editForm.value.title;
+    this.selectedDvd.director = this.editForm.value.director;
+    this.selectedDvd.year = this.editForm.value.year;
+    this.selectedDvd.link = this.editForm.value.link;
+  }
+
+  onCancel() {
     this.editForm.reset();
     this.router.navigate(['']);
-  };
-
-  test() {
-    console.log(this.selectedDvd, "test");
   };
 
 }

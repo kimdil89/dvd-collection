@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { DvdItem } from '../dvd-item';
-import { Router } from '@angular/router';
+import { DvdItem } from '../interfaces/dvd-item';
 
 @Component({
   selector: 'app-single-movie',
@@ -13,7 +12,7 @@ export class SingleMovieComponent implements OnInit {
   @Output() remove = new EventEmitter<DvdItem>();
   @Output() select = new EventEmitter<DvdItem>();
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() { }
 
