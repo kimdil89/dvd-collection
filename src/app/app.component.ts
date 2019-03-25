@@ -13,11 +13,11 @@ export class AppComponent {
   searchText: string;
 
   constructor(private modalService: NgbModal,
-    public toastr: ToastrManager) { }
+              public toastr: ToastrManager) { }
 
 
   openFormModal() {
-    this.modalService.open(FormModalComponent); /** opening add-modal  */
+    this.modalService.open(FormModalComponent); /** opening add-modal */
   };
 
   passSearchText(searchText) { /** passing data to search box */

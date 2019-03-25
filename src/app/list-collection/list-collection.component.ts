@@ -2,13 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { DvdItem } from '../interfaces/dvd-item';
 import { Router } from '@angular/router';
 import { orderBy } from "lodash";
-import { map } from 'lodash';
-import { iteratee } from 'lodash';
 import { ListCollectionService } from '../services/list-collection.service';
 import { MyCollectionService } from '../services/my-collection.service';
 import { AlertService } from 'src/app/services/alert.service';
-import { from } from 'rxjs';
-
 
 @Component({
   selector: 'app-list-collection',
@@ -20,12 +16,11 @@ export class ListCollectionComponent implements OnInit {
   listOfDvds;
   selectedDvd: DvdItem;
   showDetails: boolean;
-  // 
 
   constructor(private listCollectionService: ListCollectionService,
-    private router: Router,
-    private myCollectionService: MyCollectionService,
-    private alertService: AlertService) { }
+              private router: Router,
+              private myCollectionService: MyCollectionService,
+              private alertService: AlertService) { }
 
   ngOnInit() {
     this.listCollectionService.filter$.subscribe((value: string) => {
@@ -36,7 +31,6 @@ export class ListCollectionComponent implements OnInit {
     });
     this.myCollectionService.getMyCollection()
       .subscribe(
-        // dvdTitle = map(this.listOfDvds, iteratee('title'));
         data => {
           this.listOfDvds = orderBy(data, ['title'], ['asc'])
         });
@@ -64,18 +58,5 @@ export class ListCollectionComponent implements OnInit {
       // do nothing
     }
   };
-
-  // insensitiveCase(a, b) {
-  //   const titleA = a.titleA.toUpperCase();
-  //   const titleB = b.titleB.toUpperCase();
-
-  //   let comparison = 0;
-  //   if (titleA > titleB) {
-  //     comparison = 1;
-  //   } else if (titleA < titleB) {
-  //     comparison = -1;
-  //   }
-  //   return comparison;
-  // }
 
 }

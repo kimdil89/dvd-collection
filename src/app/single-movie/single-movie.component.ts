@@ -8,7 +8,7 @@ import { DvdItem } from '../interfaces/dvd-item';
 })
 export class SingleMovieComponent implements OnInit {
   @Input() selectedDvd: DvdItem;
-  @Output() edit = new EventEmitter<DvdItem>();
+  @Output() edit = new EventEmitter<number>();
   @Output() remove = new EventEmitter<DvdItem>();
   @Output() select = new EventEmitter<DvdItem>();
 
@@ -16,8 +16,8 @@ export class SingleMovieComponent implements OnInit {
 
   ngOnInit() { }
 
-  editMovie(dvd: DvdItem) {
-    this.edit.emit(dvd);
+  editMovie(id: number) {
+    this.edit.emit(id);
   };
 
   deleteMovie(dvd: DvdItem) {
@@ -27,6 +27,5 @@ export class SingleMovieComponent implements OnInit {
   onSelect(dvd: DvdItem) {
     this.select.emit(dvd);
   };
-
 
 }

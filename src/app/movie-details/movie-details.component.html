@@ -6,14 +6,20 @@
       <div *ngIf="selectedDvd">
         <div class="title">
           <span class="badge-t">
-            <img src="http://www.pngmart.com/files/5/Movie-PNG-Transparent-Image.png" alt="movie_img" class="movie-img">
+            <img 
+              src="http://www.pngmart.com/files/5/Movie-PNG-Transparent-Image.png" 
+              alt="movie_img" 
+              class="movie-img">
             <span class="text">{{ selectedDvd.title }}</span>
           </span>
         </div>
         <div class="director">
           <div>
             <span class="badge-d">
-              <img src="https://static.thenounproject.com/png/172672-200.png" alt="director_img" class="director-img">
+              <img 
+                src="https://static.thenounproject.com/png/172672-200.png" 
+                alt="director_img" 
+                class="director-img">
               <br>{{ selectedDvd.director }}
             </span>
           </div>
@@ -23,7 +29,8 @@
               <a href="{{selectedDvd.link}}" target="_blank">
                 <img
                   src="https://vignette.wikia.nocookie.net/charmed/images/3/3a/Filmweb_logo.png/revision/latest?cb=20160310182251&path-prefix=pl"
-                  alt="Filmweb_logo" class="logo">
+                  alt="Filmweb_logo" 
+                  class="logo">
               </a>
             </span>
           </div>

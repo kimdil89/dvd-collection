@@ -15,7 +15,6 @@ import { AlertService } from 'src/app/services/alert.service';
 
 export class EditMovieComponent implements OnInit {
   editForm: FormGroup;
-  listOfDvds;
   selectedDvd: DvdItem;
   urlVal: string = "https://www.+";
 
@@ -39,7 +38,7 @@ export class EditMovieComponent implements OnInit {
         if (dvdId) {
           this.getMovie(dvdId);
         }
-      })
+      });
 
     this.editForm = new FormGroup({
       'title': new FormControl(null, Validators.required),
@@ -58,7 +57,7 @@ export class EditMovieComponent implements OnInit {
       },
       (err: any) => console.log(err)
     );
-  }
+  };
 
   editMovie(dvd: DvdItem) {
     this.selectedDvd = dvd;
@@ -68,7 +67,7 @@ export class EditMovieComponent implements OnInit {
       'year': this.selectedDvd.year,
       'link': this.selectedDvd.link
     });
-  }
+  };
 
   onSubmit(): void {
     this.mapFormValuesToEditModal();
@@ -85,7 +84,7 @@ export class EditMovieComponent implements OnInit {
     this.selectedDvd.director = this.editForm.value.director;
     this.selectedDvd.year = this.editForm.value.year;
     this.selectedDvd.link = this.editForm.value.link;
-  }
+  };
 
   onCancel() {
     this.editForm.reset();

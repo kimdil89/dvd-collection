@@ -24,13 +24,13 @@ li.each-movie:hover {
   align-self: center;
   width: 290px;
   height: 45px;
-
 }
 
 .text {
   margin-top: 8px;
   text-overflow: ellipsis;
   overflow: hidden;
+  width: 280px;
 }
 
 .btn-custom {
@@ -43,8 +43,4 @@ li.each-movie:hover {
 
 .btn-delete {
   background-color: #e8a0a6;
-}
-
-.text {
-  width: 280px;
 }

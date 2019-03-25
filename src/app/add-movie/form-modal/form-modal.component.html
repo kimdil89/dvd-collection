@@ -23,14 +23,14 @@
         <input type="text" 
                 id="director" 
                 class="form-control" 
-                formControlName="director" />
+                formControlName="director"/>
       </div>
       <div class="form-group">
         <label for="username">Year of production: </label>
         <input type="number" 
                 id="year" 
                 class="form-control" 
-                formControlName="year" />
+                formControlName="year"/>
         <span *ngIf="!myForm.get('year').valid && myForm.get('year').touched" 
               class="invalid-alert">Oops... This is not an existing year!</span>
       </div>

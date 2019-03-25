@@ -4,7 +4,6 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { MyCollectionService } from 'src/app/services/my-collection.service';
 import { AlertService } from 'src/app/services/alert.service';
 
-
 @Component({
   selector: 'app-form-modal',
   templateUrl: './form-modal.component.html',
@@ -12,7 +11,6 @@ import { AlertService } from 'src/app/services/alert.service';
 })
 export class FormModalComponent {
   myForm: FormGroup;
-  listOfDvds;
   urlVal: string = "https?://www.+";
 
   constructor(public activeModal: NgbActiveModal,
@@ -36,7 +34,9 @@ export class FormModalComponent {
       );
     this.activeModal.close(this.myForm.value);
     this.alertService.showSuccess("You succesfully added a new movie!");
-    setTimeout(function () { window.location.reload(); }, 2000);
+    setTimeout(function () { 
+      window.location.reload(); 
+    }, 2000);
   };
 
 }

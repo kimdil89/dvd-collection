@@ -3,8 +3,6 @@ import { DvdItem } from '../interfaces/dvd-item';
 
 @Pipe({
   name: 'filter'
-  // Andrzej- jako ciekawostkę możesz poczytać o parametrze pure przy definicji Pipe w Angularze. 
-  // Temat już bardziej zaawansowany, ale jesteś ambitna więc polecam :-)
 })
 
 export class FilterPipe implements PipeTransform {
